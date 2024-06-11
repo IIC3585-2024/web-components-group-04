@@ -1,0 +1,49 @@
+:root {
+    --main-bg-color: #f9f9f9;
+    --main-text-color: #333;
+    --secondary-text-color: #666;
+    --primary-color: #1c768f;
+    --secondary-color: #FA991C;
+    --font-family: 'Arial', sans-serif;
+    --padding: 16px;
+    --margin: 16px;
+    --border-radius: 4px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.primary-card {
+    background-color: var(--primary-color);
+    color: var(--main-bg-color);
+    flex: 1 1 33%;
+}
+
+.secondary-card {
+    background-color: var(--main-bg-color);
+    color: var(--secondary-text-color);
+    flex: 2 1 67%;
+}
+
+.title {
+    font-size: 2rem;
+    margin: var(--margin);
+}

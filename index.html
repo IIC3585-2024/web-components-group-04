@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components Project</title>
+    <link rel="stylesheet" href="./styles/base.css">
+</head>
+<body>
+    <div class="centered primary-card">
+        <h1 class="title">Web Components</h1>
+    </div>
+    <div class="centered secondary-card">
+        <todo-list 
+            item1="Cafe" 
+            item2="Azucar" 
+            item3="Leche" 
+            prompt="lista viernes 23 de marzo"
+            placeholder = "Escribe un item"
+            titulo="Compras">
+        </todo-list>
+        <sell-item 
+            img-src="./assets/Azucar.png" 
+            title="Azucar" 
+            price="100" 
+            discount-price="80" 
+            discount="20%" 
+            rating="4">
+        </sell-item>
+    </div>
+
+    <script type="module" src="./components/standard/todo-item.js"></script>
+    <script type="module" src="./components/standard/todo-list.js"></script>
+    <script type="module" src="./components/lit/todo-list.js"></script>
+    <script type="module" src="./components/standard/sell-item.js"></script>
+    <script type="module" src="./components/lit/sell-item.js"></script>
+</body>
+</html>
