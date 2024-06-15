@@ -13,3 +13,15 @@ Este proyecto incluye dos componentes de ejemplo: una lista de tareas (todo-list
    ```
 
 
+### Commits y PR's Conventions
+#### Commits 
+
+(emoji)[kind]: mesagge
+
+#### PR's
+
+(emoji)[kind]: Message
+
+emoji guide: https://gitmoji.dev/
+
+
