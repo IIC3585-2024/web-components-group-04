@@ -48,6 +48,15 @@ template.innerHTML = `
         .stars {
             color: gold;
         }
+        .add-to-cart-button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #FA991C;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
     <div class="image-container">
         <img src="" alt="Product Image">
@@ -63,6 +72,7 @@ template.innerHTML = `
             <div class="stars"></div>
             <span class="rating-value"></span>
         </div>
+        <button class="add-to-cart-button">Add to Cart</button>
     </div>
 `;
 
@@ -79,6 +89,11 @@ class SellItem extends HTMLElement {
 
     connectedCallback() {
         this.updateComponent();
+        this.shadowRoot.querySelector('.add-to-cart-button').addEventListener('click', () => this.addToCart());
+    }
+
+    disconnectedCallback() {
+        this.shadowRoot.querySelector('.add-to-cart-button').removeEventListener('click', () => this.addToCart());
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -98,10 +113,10 @@ class SellItem extends HTMLElement {
         this.shadowRoot.querySelector('.price').textContent = `$${price}`;
         this.shadowRoot.querySelector('.discount-price').textContent = `$${discountPrice}`;
         this.shadowRoot.querySelector('.discount').textContent = discount;
-        
+
         const starsContainer = this.shadowRoot.querySelector('.stars');
         starsContainer.innerHTML = this.getStars(rating);
-        
+
         this.shadowRoot.querySelector('.rating-value').textContent = `(${rating})`;
     }
 
@@ -116,6 +131,16 @@ class SellItem extends HTMLElement {
         }
 
         return stars;
+    }
+
+    addToCart() {
+        const title = this.getAttribute('title');
+        const event = new CustomEvent('add-to-cart', {
+            detail: {
+                title: title
+            }
+        });
+        this.dispatchEvent(event);
     }
 }
 

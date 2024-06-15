@@ -8,31 +8,61 @@
 </head>
 <body>
     <div class="centered primary-card">
-        <h1 class="title">Web Components</h1>
+        <h1 class="title">Shopping Sprint</h1>
+        <p class="description">Welcome to Shopping Sprint!</p>
+        <p class="description"> This is a game where you have to buy all the items in your shopping list as fast as you can. Good luck!</p>
     </div>
-    <div class="centered secondary-card">
-        <todo-list 
+    <div id="standard-version" class="centered secondary-card">
+        <div class="start-container">
+            <button id="start-button" class="game-button">Start Game</button>
+            <div id="timer">Time: 0</div>
+            <button id="stop-button" class="game-button">Stop Game</button>
+        </div>
+        <todo-list
+            id="todo-list"
             item1="Cafe" 
             item2="Azucar" 
             item3="Leche" 
             prompt="lista viernes 23 de marzo"
-            placeholder = "Escribe un item"
+            placeholder="Escribe un item"
             titulo="Compras">
         </todo-list>
-        <sell-item 
-            img-src="./assets/Azucar.png" 
-            title="Azucar" 
-            price="100" 
-            discount-price="80" 
-            discount="20%" 
-            rating="4">
-        </sell-item>
+        <div class="products-container">
+            <sell-item 
+                img-src="./assets/Azucar.png" 
+                title="Azucar" 
+                price="100" 
+                discount-price="80" 
+                discount="20%" 
+                rating="4">
+            </sell-item>
+
+            <sell-item 
+                img-src="./assets/Cafe.png" 
+                title="Cafe" 
+                price="200" 
+                discount-price="180" 
+                discount="10%" 
+                rating="5">
+            </sell-item>
+
+            <sell-item 
+                img-src="./assets/Leche.png" 
+                title="Leche" 
+                price="150" 
+                discount-price="120" 
+                discount="20%" 
+                rating="3">
+            </sell-item>
+        </div>
     </div>
 
     <script type="module" src="./components/standard/todo-item.js"></script>
     <script type="module" src="./components/standard/todo-list.js"></script>
+    <script type="module" src="./components/lit/todo-item.js"></script>
     <script type="module" src="./components/lit/todo-list.js"></script>
     <script type="module" src="./components/standard/sell-item.js"></script>
     <script type="module" src="./components/lit/sell-item.js"></script>
+    <script src="./game.js"></script>
 </body>
 </html>

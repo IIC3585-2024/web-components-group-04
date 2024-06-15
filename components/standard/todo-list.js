@@ -127,6 +127,14 @@ class TodoList extends HTMLElement {
             input.value = '';
         }
     }
+
+    getItems() {
+        const items = [];
+        this.shadowRoot.querySelectorAll('todo-item').forEach(item => {
+            items.push(item.getAttribute('text'));
+        });
+        return items;
+    }
 }
 
 customElements.define('todo-list', TodoList);
