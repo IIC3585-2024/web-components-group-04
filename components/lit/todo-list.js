@@ -1,4 +1,8 @@
-import { LitElement, html, css } from 'lit';
+import {
+    html,
+    css,
+    LitElement,
+  } from "https://cdn.jsdelivr.net/gh/lit/dist@2.4.0/core/lit-core.min.js";
 
 export class TodoList extends LitElement {
     static properties = {
