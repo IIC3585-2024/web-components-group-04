@@ -10,16 +10,17 @@
     <div class="centered primary-card">
         <h1 class="title">Shopping Sprint</h1>
         <p class="description">Welcome to Shopping Sprint!</p>
-        <p class="description"> This is a game where you have to buy all the items in your shopping list as fast as you can. Good luck!</p>
+        <p class="description">This is a game where you have to buy all the items in your shopping list as fast as you can. Good luck!</p>
+        <button id="toggle-button" class="game-button">Switch to Lit Version</button>
     </div>
     <div id="standard-version" class="centered secondary-card">
         <div class="start-container">
-            <button id="start-button" class="game-button">Start Game</button>
-            <div id="timer">Time: 0</div>
-            <button id="stop-button" class="game-button">Stop Game</button>
+            <button id="start-button-standard" class="game-button">Start Game</button>
+            <div id="timer-standard" class="timer">Time: 0</div>
+            <button id="stop-button-standard" class="game-button">Stop Game</button>
         </div>
         <todo-list
-            id="todo-list"
+            id="todo-list-standard"
             item1="Cafe" 
             item2="Azucar" 
             item3="Leche" 
@@ -54,6 +55,50 @@
                 discount="20%" 
                 rating="3">
             </sell-item>
+        </div>
+    </div>
+    <div id="lit-version" class="centered secondary-card" style="display: none;">
+        <div class="start-container">
+            <button id="start-button-lit" class="game-button">Start Game</button>
+            <div id="timer-lit" class="timer">Time: 0</div>
+            <button id="stop-button-lit" class="game-button">Stop Game</button>
+        </div>
+        <todo-list-lit
+            id="todo-list-lit" 
+            prompt="lista viernes 23 de marzo"
+            placeholder="Escribe un item"
+            titulo="Compras"
+            items='["Cafe", "Azucar", "Leche"]'>
+        </todo-list-lit>
+
+        <div class="products-container">
+
+            <sell-item-lit 
+                img-src="./assets/Azucar.png" 
+                title="Azucar" 
+                price="100" 
+                discount-price="80" 
+                discount="20%" 
+                rating="4">
+            </sell-item-lit>
+
+            <sell-item-lit 
+                img-src="./assets/Cafe.png" 
+                title="Cafe" 
+                price="200" 
+                discount-price="180" 
+                discount="10%" 
+                rating="5">
+            </sell-item-lit>
+
+            <sell-item-lit 
+                img-src="./assets/Leche.png" 
+                title="Leche" 
+                price="150" 
+                discount-price="120" 
+                discount="20%" 
+                rating="3">
+            </sell-item-lit>
         </div>
     </div>
 

@@ -52,7 +52,7 @@ body {
     margin: var(--margin);
 }
 
-#timer {
+.timer {
     background-color: var(--secondary-color);
     color: var(--main-bg-color);
     border: none;

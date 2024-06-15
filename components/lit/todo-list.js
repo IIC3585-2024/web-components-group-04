@@ -1,4 +1,8 @@
-import { LitElement, html, css } from 'lit';
+import {
+    html,
+    css,
+    LitElement,
+} from "https://cdn.jsdelivr.net/gh/lit/dist@2.4.0/core/lit-core.min.js";
 
 export class TodoList extends LitElement {
     static properties = {
@@ -53,6 +57,18 @@ export class TodoList extends LitElement {
         this.placeholder = 'Escribe una tarea';
     }
 
+    connectedCallback() {
+        super.connectedCallback();
+        this._loadInitialItems();
+    }
+
+    _loadInitialItems() {
+        const initialItems = this.getAttribute('items');
+        if (initialItems) {
+            this.items = JSON.parse(initialItems);
+        }
+    }
+
     render() {
         return html`
             <div>
@@ -89,7 +105,7 @@ export class TodoList extends LitElement {
     }
 
     getItems() {
-        return this.items;
+        return Array.from(this.shadowRoot.querySelectorAll('todo-item-lit')).map(item => item.text);
     }
 }
 
