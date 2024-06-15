@@ -18,9 +18,13 @@ Este proyecto incluye dos componentes de ejemplo: una lista de tareas (todo-list
 
 (emoji)[kind]: mesagge
 
+✨feat: add lit components and toggle between versions
+
 #### PR's
 
 (emoji)[kind]: Message
+
+✨feat: Add game logic and lit components
 
 emoji guide: https://gitmoji.dev/
 
