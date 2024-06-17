@@ -130,8 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const newItemLit = document.createElement('sell-item-lit');
 
-
-
         newItemLit.setAttribute('img-src', `./assets/food.png`);
         newItemLit.setAttribute('title', itemTitle);
         newItemLit.setAttribute('price', price);
