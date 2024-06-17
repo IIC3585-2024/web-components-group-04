@@ -115,11 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addNewItem(itemTitle, version) {
-        const newItemStandard = document.createElement('sell-item');
-
+        
         const price = Math.floor(Math.random() * 1000) + 1;
         const discount = Math.floor(Math.random() * 100) + 1;
         const rating = Math.floor(Math.random() * 5) + 1;
+        
+        const newItemStandard = document.createElement('sell-item');
 
         newItemStandard.setAttribute('img-src', `./assets/food.png`);
         newItemStandard.setAttribute('title', itemTitle);
@@ -130,12 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const newItemLit = document.createElement('sell-item-lit');
 
-        newItemLit.setAttribute('img-src', `./assets/food.png`);
-        newItemLit.setAttribute('title', itemTitle);
-        newItemLit.setAttribute('price', price);
-        newItemLit.setAttribute('discount-price', Math.floor(price - price * discount / 100));
-        newItemLit.setAttribute('discount', `${discount}%`);
-        newItemLit.setAttribute('rating', rating); 
+        newItemLit.price = price;
+        newItemLit.discountPrice = Math.floor(price - price * discount / 100);
+        newItemLit.discount = `${discount}%`;
+        newItemLit.rating = rating;
+        newItemLit.title = itemTitle;
+        newItemLit.imgSrc = `./assets/food.png`;
 
         productsContainerStandard.appendChild(newItemStandard);
         productsContainerLit.appendChild(newItemLit);
