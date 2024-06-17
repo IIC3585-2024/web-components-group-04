@@ -21,7 +21,7 @@ export class TodoItem extends LitElement {
             background-color: white;
         }
         button {
-            background-color: #FA991C;
+            background-color: #1fd5d5;
             color: white;
             border: none;
             border-radius: 4px;

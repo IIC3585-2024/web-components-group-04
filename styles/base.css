@@ -1,13 +1,32 @@
 :root {
-    --main-bg-color: #f9f9f9;
-    --main-text-color: #333;
-    --secondary-text-color: #666;
-    --primary-color: #1c768f;
-    --secondary-color: #FA991C;
+    --main-bg-color: #121212;
+    --main-bg-color-500: #1e1e1e;
+    --main-bg-color-300: #4c4c4c;
+    --main-bg-color-100: #e5e5e5;
+    --main-text-color: #ededed;
+    --secondary-text-color: #121212;
+    --primary-color: #00ffffde;
+    --primary-color-700: #00ffff2e;
+    --secondary-color: #324FFF;
+    --secondary-color-700: #324dff5b;
     --font-family: 'Arial', sans-serif;
     --padding: 16px;
     --margin: 16px;
     --border-radius: 4px;
+}
+
+[data-theme='lit'] {
+    --main-bg-color: #0b3434;
+    --main-bg-color-500: #1c9c9c;
+    --main-bg-color-300: #4c4c4c;
+    --main-bg-color-100: #e5e5e5;
+    --main-text-color: #ededed;
+    --secondary-text-color: #0b3434;
+    --primary-color: #1e1e1e;
+    --primary-color-700: #00ffff2e;
+    --secondary-color: #1fd5d5;
+    --secondary-color-700: #00ffff41;
+    --font-family: 'Arial', sans-serif;
 }
 
 html, body {
@@ -16,6 +35,8 @@ html, body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    color: var(--main-text-color);
+    font-family: var(--font-family);
 }
 
 body {
@@ -32,11 +53,11 @@ body {
 }
 
 .primary-card {
-    background-color: var(--primary-color);
-    color: var(--main-bg-color);
+    background-color: var(--main-bg-color-500);
     flex: 1 1 20%;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.9);
 }
 
 .secondary-card {
@@ -54,7 +75,7 @@ body {
 
 .timer {
     background-color: var(--secondary-color);
-    color: var(--main-bg-color);
+    color: var(--main-text-color);
     border: none;
     padding: var(--padding);
     margin: var(--margin);
@@ -63,9 +84,21 @@ body {
     font-size: 1rem;
 }
 
+.toggle-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-text-color);
+    border: none;
+    padding: var(--padding);
+    margin: var(--margin);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
 .game-button {
     background-color: var(--secondary-color);
-    color: var(--main-bg-color);
+    color: var(--main-text-color);
     border: none;
     padding: var(--padding);
     margin: var(--margin);
@@ -76,8 +109,8 @@ body {
 }
 
 .game-button:disabled {
-    background-color: var(--secondary-text-color);
-    color: var(--main-bg-color);
+    background-color: var(--secondary-color-700);
+    color: var(--main-text-color);
     cursor: not-allowed;
 }
 
@@ -92,4 +125,12 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     padding: var(--padding);
+}
+
+.lists-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: top;
 }
