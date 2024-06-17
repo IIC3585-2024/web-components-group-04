@@ -12,7 +12,7 @@ itemTemplate.innerHTML = `
             background-color: white;
         }
         button {
-            background-color: #FA991C;
+            background-color: #324FFF;
             color: white;
             border: none;
             border-radius: 4px;

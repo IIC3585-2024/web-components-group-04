@@ -116,15 +116,29 @@ class TodoList extends HTMLElement {
         }
     }
 
-    addTask() {
-        const input = this.shadowRoot.querySelector('input');
-        const task = input.value.trim();
+    addTask(item) {
+        let cart = false;
+        if (typeof item === 'string') {
+            cart = true
+        }    
+     
+        let task;
+        let input;
+        if (cart) {
+            task = item;
+        } else {
+            input = this.shadowRoot.querySelector('input');
+            task = input.value.trim();
+        }
 
         if (task) {
             const todoItem = document.createElement('todo-item');
             todoItem.setAttribute('text', task);
             this.shadowRoot.querySelector('ul').appendChild(todoItem);
-            input.value = '';
+            if (!cart) {
+                input.value = '';
+            }
+            this.dispatchEvent(new CustomEvent('item-added', { detail: task }));
         }
     }
 
@@ -135,6 +149,13 @@ class TodoList extends HTMLElement {
         });
         return items;
     }
+
+    clearTasks() {
+        const ul = this.shadowRoot.querySelector('ul');
+        ul.innerHTML = '';
+        this.dispatchEvent(new CustomEvent('tasks-cleared'));
+    }
+    
 }
 
 customElements.define('todo-list', TodoList);

@@ -34,10 +34,10 @@ template.innerHTML = `
         }
         .discount-price {
             font-size: 1.2em;
-            color: #FA991C;
+            color: #324FFF;
         }
         .discount {
-            color: #FA991C;
+            color: #324FFF;
             font-weight: bold;
         }
         .rating {
@@ -51,8 +51,8 @@ template.innerHTML = `
         .add-to-cart-button {
             margin-top: 10px;
             padding: 8px 16px;
-            background-color: #FA991C;
-            color: white;
+            background-color: #00ffffde;
+            color: #121212;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -138,7 +138,9 @@ class SellItem extends HTMLElement {
         const event = new CustomEvent('add-to-cart', {
             detail: {
                 title: title
-            }
+            },
+            bubbles: true,
+            composed: true
         });
         this.dispatchEvent(event);
     }

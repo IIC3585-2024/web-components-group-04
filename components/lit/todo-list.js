@@ -75,7 +75,7 @@ export class TodoList extends LitElement {
                 <h2>${this.titulo}</h2>
                 <p>${this.prompt}</p>
                 <input type="text" placeholder="${this.placeholder}" @keypress=${this._handleKeyPress}>
-                <button @click=${this._addTask}>Añadir tarea</button>
+                <button @click=${this.addTask}>Añadir tarea</button>
                 <ul>
                     ${this.items.map(item => html`<todo-item-lit text="${item}" @remove=${this._removeItem}></todo-item-lit>`)}
                 </ul>
@@ -85,18 +85,34 @@ export class TodoList extends LitElement {
 
     _handleKeyPress(e) {
         if (e.key === 'Enter') {
-            this._addTask();
+            this.addTask();
         }
     }
 
-    _addTask() {
-        const input = this.shadowRoot.querySelector('input');
-        const task = input.value.trim();
+    addTask(item) {
+        let cart = false;
+        if (typeof item === 'string') {
+            cart = true
+        }    
+
+        let task;
+        let input;
+        if (cart) {
+            task = item;
+        } else {
+            input = this.shadowRoot.querySelector('input');
+            task = input.value.trim();
+        }
 
         if (task) {
             this.items = [...this.items, task];
-            input.value = '';
+            if (!cart) {
+                input.value = '';
+            }
         }
+
+        // Dispatch custom event
+        this.dispatchEvent(new CustomEvent('item-added', { detail: task }));
     }
 
     _removeItem(e) {
@@ -106,6 +122,10 @@ export class TodoList extends LitElement {
 
     getItems() {
         return Array.from(this.shadowRoot.querySelectorAll('todo-item-lit')).map(item => item.text);
+    }
+
+    clearTasks() {
+        return this.items = [];
     }
 }
 

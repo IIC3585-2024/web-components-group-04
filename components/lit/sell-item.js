@@ -48,10 +48,10 @@ export class SellItem extends LitElement {
         }
         .discount-price {
             font-size: 1.2em;
-            color: #FA991C;
+            color: #1c9c9c;
         }
         .discount {
-            color: #FA991C;
+            color: #1c9c9c;
             font-weight: bold;
         }
         .rating {
@@ -65,7 +65,7 @@ export class SellItem extends LitElement {
         .add-to-cart-button {
             margin-top: 10px;
             padding: 8px 16px;
-            background-color: #FA991C;
+            background-color: #1fd5d5;
             color: white;
             border: none;
             border-radius: 4px;
@@ -121,7 +121,9 @@ export class SellItem extends LitElement {
         const event = new CustomEvent('add-to-cart', {
             detail: {
                 title: this.title
-            }
+            },
+            bubbles: true,
+            composed: true
         });
         this.dispatchEvent(event);
     }
